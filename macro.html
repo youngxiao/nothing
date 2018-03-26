@@ -1,0 +1,2626 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>MarkdownPad Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>附录：用到的宏</h1>
+<h1>00<em>Macro</em>F01.sas</h1>
+<pre><code>******************************************************************************;
+*** 2名义变量最优法降基***; 
+******************************************************************************;   
+
+/*******
+  Credit Risk Scorecards: Development and Implementation using SAS
+  (c)  Mamdouh Refaat  Ch 5.1/5.2
+********/
+
+
+
+/* The macros:
+   These are FIVE macros used to find the rules to reduce
+   the cardinality of a nominal variable with string 
+   values. They are:
+   GValue, CalcMErit, BestSplit, CandSplits, ReduceCats.
+   Only ReduceCats is to be called to obain the mappings
+   for the reduction of cardinality. 
+
+   Applying the maps requires the final macro: ApplyMap1. */
+
+/*******************************************************/
+/* Macro GValue */
+/*******************************************************/
+%macro GValue(BinDS, Method, M_Value);
+/* Calculation of the value of current split  */
+
+/* Extract the frequency table values */
+proc sql noprint;
+  /* Count the number of obs and categories of X and Y */
+   %local i j R N; /* C=2, R=Bmax+1 */
+   select max(bin) into : R from &amp;BinDS;
+   select sum(total) into : N from &amp;BinDS; 
+
+   /* extract n_i_j , Ni_star*/
+   %do i=1 %to &amp;R; 
+  %local N_&amp;i._1 N_&amp;i._2 N_&amp;i._s N_s_1 N_s_2;
+   Select sum(Ni1) into :N_&amp;i._1 from &amp;BinDS where Bin =&amp;i ;
+   Select sum(Ni2) into :N_&amp;i._2 from &amp;BinDS where Bin =&amp;i ;
+   Select sum(Total) into :N_&amp;i._s from &amp;BinDS where Bin =&amp;i ;
+   Select sum(Ni1) into :N_s_1 from &amp;BinDS ;
+   Select sum(Ni2) into :N_s_2 from &amp;BinDS ;
+%end;
+quit;
+
+%if (&amp;method=1) %then %do; /* Gini */
+
+    /* substitute in the equations for Gi, G */
+      %do i=1 %to &amp;r;
+     %local G_&amp;i;
+     %let G_&amp;i=0;
+       %do j=1 %to 2;
+      %let G_&amp;i = %sysevalf(&amp;&amp;G_&amp;i + &amp;&amp;N_&amp;i._&amp;j * &amp;&amp;N_&amp;i._&amp;j);
+       %end;
+      %let G_&amp;i = %sysevalf(1-&amp;&amp;G_&amp;i/(&amp;&amp;N_&amp;i._s * &amp;&amp;N_&amp;i._s));
+       %end;
+
+       %local G; 
+    %let G=0;
+    %do j=1 %to 2;
+       %let G=%sysevalf(&amp;G + &amp;&amp;N_s_&amp;j * &amp;&amp;N_s_&amp;j);
+    %end;
+    %let G=%sysevalf(1 - &amp;G / (&amp;N * &amp;N));
+
+    /* finally, the Gini ratio Gr */
+    %local Gr;
+    %let Gr=0; 
+     %do i=1 %to &amp;r;
+       %let Gr=%sysevalf(&amp;Gr+ &amp;&amp;N_&amp;i._s * &amp;&amp;G_&amp;i / &amp;N);
+     %end;
+
+    %let &amp;M_Value=%sysevalf(1 - &amp;Gr/&amp;G); 
+%return;
+                    %end;
+
+%if (&amp;Method=2) %then %do; /* Entropy */
+
+/* Check on zero counts or missings */
+   %do i=1 %to &amp;R; 
+%do j=1 %to 2;
+      %local N_&amp;i._&amp;j;
+      %if (&amp;&amp;N_&amp;i._&amp;j=.) or (&amp;&amp;N_&amp;i._&amp;j=0) %then %do ; /* return a missing value */ 
+     %let &amp;M_Value=.;
+      %return; 
+          %end;
+ %end;
+   %end;
+
+/* substitute in the equations for Ei, E */
+  %do i=1 %to &amp;r;
+ %local E_&amp;i;
+ %let E_&amp;i=0;
+   %do j=1 %to 2;
+  %let E_&amp;i = %sysevalf(&amp;&amp;E_&amp;i - (&amp;&amp;N_&amp;i._&amp;j/&amp;&amp;N_&amp;i._s)*%sysfunc(log(%sysevalf(&amp;&amp;N_&amp;i._&amp;j/&amp;&amp;N_&amp;i._s))) );
+   %end;
+  %let E_&amp;i = %sysevalf(&amp;&amp;E_&amp;i/%sysfunc(log(2)));
+   %end;
+   %local E; 
+%let E=0;
+%do j=1 %to 2;
+   %let E=%sysevalf(&amp;E - (&amp;&amp;N_s_&amp;j/&amp;N)*%sysfunc(log(&amp;&amp;N_s_&amp;j/&amp;N)) );
+%end;
+%let E=%sysevalf(&amp;E / %sysfunc(log(2)));
+
+/* finally, the Entropy ratio Er */
+    %local Er;
+    %let Er=0; 
+     %do i=1 %to &amp;r;
+       %let Er=%sysevalf(&amp;Er+ &amp;&amp;N_&amp;i._s * &amp;&amp;E_&amp;i / &amp;N);
+     %end;
+    %let &amp;M_Value=%sysevalf(1 - &amp;Er/&amp;E); 
+     %return;
+                       %end;
+
+%if (&amp;Method=3)%then %do; /* The Pearson's X2 statistic */
+ %local X2;
+    %let N=%eval(&amp;n_s_1+&amp;n_s_2);
+    %let X2=0;
+    %do i=1 %to &amp;r;
+      %do j=1 %to 2;
+        %local m_&amp;i._&amp;j;
+        %let m_&amp;i._&amp;j=%sysevalf(&amp;&amp;n_&amp;i._s * &amp;&amp;n_s_&amp;j/&amp;N);
+        %let X2=%sysevalf(&amp;X2 + (&amp;&amp;n_&amp;i._&amp;j-&amp;&amp;m_&amp;i._&amp;j)*(&amp;&amp;n_&amp;i._&amp;j-&amp;&amp;m_&amp;i._&amp;j)/&amp;&amp;m_&amp;i._&amp;j  );  
+      %end;
+    %end;
+    %let &amp;M_value=&amp;X2;
+    %return;
+
+%end; /* end of X2 */
+
+%if (&amp;Method=4) %then %do; /* Information value */
+/* substitute in the equation for IV */
+ %local IV;
+ %let IV=0;
+   /* first, check on the values of the N#s */
+    %do i=1 %to &amp;r;
+          %if (&amp;&amp;N_&amp;i._1=.) or (&amp;&amp;N_&amp;i._1=0) or 
+  (&amp;&amp;N_&amp;i._2=.) or (&amp;&amp;N_&amp;i._2=0) or
+  (&amp;N_s_1=) or (&amp;N_s_1=0)or  
+                  (&amp;N_s_2=) or (&amp;N_s_2=0) 
+                %then %do ; /* return a missing value */ 
+       %let &amp;M_Value=.;
+    %return; 
+          %end;
+    %end;
+   %do i=1 %to &amp;r;
+  %let IV = %sysevalf(&amp;IV + (&amp;&amp;N_&amp;i._1/&amp;N_s_1 - &amp;&amp;N_&amp;i._2/&amp;N_s_2)*%sysfunc(log(%sysevalf(&amp;&amp;N_&amp;i._1*&amp;N_s_2/(&amp;&amp;N_&amp;i._2*&amp;N_s_1)))) );
+   %end;
+%let &amp;M_Value=&amp;IV; 
+                        %end;
+%mend;
+
+/*******************************************************/
+/* Macro CalcMerit */
+/*******************************************************/
+%macro CalcMerit(BinDS, ix, method, M_Value);
+/* claculation of the merit function for the current location 
+   on a candidate bin. All nodes on or above the value
+   are grouped together, and those larger up to the end 
+   of the bin are together */
+
+/*   Use SQL to find the frquencies of the contingency table  */
+%local n_11 n_12 n_21 n_22 n_1s n_2s n_s1 n_s2; 
+proc sql noprint;
+ select sum(Ni1) into :n_11 from &amp;BinDS where i&lt;=&amp;ix;
+ select sum(Ni1) into :n_21 from &amp;BinDS where i&gt; &amp;ix;
+
+ select sum(Ni2) into : n_12 from &amp;BinDS where i&lt;=&amp;ix ;
+ select sum(Ni2) into : n_22 from &amp;binDS where i&gt; &amp;ix ;
+
+ select sum(total) into :n_1s from &amp;BinDS where i&lt;=&amp;ix ;
+ select sum(total) into :n_2s from &amp;BinDS where i&gt; &amp;ix ;
+
+ select sum(Ni1) into :n_s1 from &amp;BinDS;
+ select sum(Ni2) into :n_s2 from &amp;BinDS;
+quit;
+
+/* Calcualte the merit functino according to its type */
+/* The case of Gini */
+%if (&amp;method=1) %then %do;
+%local N G1 G2 G Gr;
+    %let N=%eval(&amp;n_1s+&amp;n_2s);
+    %let G1=%sysevalf(1-(&amp;n_11*&amp;n_11+&amp;n_12*&amp;n_12)/(&amp;n_1s*&amp;n_1s));
+    %let G2=%sysevalf(1-(&amp;n_21*&amp;n_21+&amp;n_22*&amp;n_22)/(&amp;n_2s*&amp;n_2s));
+    %let G =%sysevalf(1-(&amp;n_s1*&amp;n_s1+&amp;n_s2*&amp;n_s2)/(&amp;N*&amp;N));
+    %let GR=%sysevalf(1-(&amp;n_1s*&amp;G1+&amp;n_2s*&amp;G2)/(&amp;N*&amp;G));
+    %let &amp;M_value=&amp;Gr;
+    %return;
+                %end;
+/* The case of Entropy */
+%if (&amp;method=2) %then %do;
+   %local N E1 E2 E Er;
+    %let N=%eval(&amp;n_1s+&amp;n_2s);
+    %let E1=%sysevalf(-( (&amp;n_11/&amp;n_1s)*%sysfunc(log(%sysevalf(&amp;n_11/&amp;n_1s))) + 
+                         (&amp;n_12/&amp;n_1s)*%sysfunc(log(%sysevalf(&amp;n_12/&amp;n_1s)))) / %sysfunc(log(2)) ) ;
+    %let E2=%sysevalf(-( (&amp;n_21/&amp;n_2s)*%sysfunc(log(%sysevalf(&amp;n_21/&amp;n_2s))) + 
+                         (&amp;n_22/&amp;n_2s)*%sysfunc(log(%sysevalf(&amp;n_22/&amp;n_2s)))) / %sysfunc(log(2)) ) ;
+    %let E =%sysevalf(-( (&amp;n_s1/&amp;n  )*%sysfunc(log(%sysevalf(&amp;n_s1/&amp;n   ))) + 
+                         (&amp;n_s2/&amp;n  )*%sysfunc(log(%sysevalf(&amp;n_s2/&amp;n   )))) / %sysfunc(log(2)) ) ;
+    %let Er=%sysevalf(1-(&amp;n_1s*&amp;E1+&amp;n_2s*&amp;E2)/(&amp;N*&amp;E));
+    %let &amp;M_value=&amp;Er;
+    %return;
+                %end;
+/* The case of X2 pearson statistic */
+%if (&amp;method=3) %then %do;
+ %local m_11 m_12 m_21 m_22 X2 N i j;
+    %let N=%eval(&amp;n_1s+&amp;n_2s);
+    %let X2=0;
+    %do i=1 %to 2;
+      %do j=1 %to 2;
+        %let m_&amp;i.&amp;j=%sysevalf(&amp;&amp;n_&amp;i.s * &amp;&amp;n_s&amp;j/&amp;N);
+        %let X2=%sysevalf(&amp;X2 + (&amp;&amp;n_&amp;i.&amp;j-&amp;&amp;m_&amp;i.&amp;j)*(&amp;&amp;n_&amp;i.&amp;j-&amp;&amp;m_&amp;i.&amp;j)/&amp;&amp;m_&amp;i.&amp;j  );  
+      %end;
+    %end;
+    %let &amp;M_value=&amp;X2;
+    %return;
+%end;
+
+/* The case of the information value */
+
+%if (&amp;method=4) %then %do;
+  %local IV;
+  %let IV=%sysevalf( ((&amp;n_11/&amp;n_s1)-(&amp;n_12/&amp;n_s2))*%sysfunc(log(%sysevalf((&amp;n_11*&amp;n_s2)/(&amp;n_12*&amp;n_s1)))) 
++((&amp;n_21/&amp;n_s1)-(&amp;n_22/&amp;n_s2))*%sysfunc(log(%sysevalf((&amp;n_21*&amp;n_s2)/(&amp;n_22*&amp;n_s1)))) );
+   %let &amp;M_Value=&amp;IV;
+   %return;
+%end;
+%mend;
+
+/*******************************************************/
+/* Macro BestSplit */
+/*******************************************************/
+%macro BestSplit(BinDs, Method, BinNo);
+
+/* find the best split for one bin dataset */
+/* the bin size=mb */
+%local mb i value BestValue BestI;
+proc sql noprint;
+ select count(*) into: mb from &amp;BinDs where Bin=&amp;BinNo; 
+quit;
+
+/* find the location of the split on this list */
+%let BestValue=0;
+%let BestI=1;
+%do i=1 %to %eval(&amp;mb-1);
+  %let value=;
+  %CalcMerit(&amp;BinDS, &amp;i, &amp;method, Value);
+  %if %sysevalf(&amp;BestValue&lt;&amp;value) %then %do;
+  %let BestValue=&amp;Value;
+      %let BestI=&amp;i;
+       %end;
+%end;
+
+/* Number the bins from 1-&gt;BestI =BinNo, and from BestI+1-&gt;mb =NewBinNo */
+
+/* split the BinNo into two bins */ 
+data &amp;BinDS;
+ set &amp;BinDS;
+  if i&lt;=&amp;BestI then Split=1;
+  else Split=0;
+drop i;
+run;
+proc sort data=&amp;BinDS; 
+by Split;
+run;
+/* reorder i within each bin */
+data &amp;BinDS;
+retain i 0;
+set &amp;BinDs;
+ by Split;
+ if first.split then i=1;
+ else i=i+1;
+run;
+%mend;
+
+/*******************************************************/
+/* Macro CandSplit */
+/*******************************************************/
+%macro CandSplits(BinDS, Method, NewBins);
+/* Generate all candidate splits from current
+   Bins and select the best new bins */
+
+/* first we sort the dataset OldBins by PDV1 and Bin */
+proc sort data=&amp;BinDS;
+by Bin PDV1;
+run;
+/* within each bin, separate the data into a candidate dataset */
+%local Bmax i value;
+proc sql noprint;
+ select max(bin) into: Bmax from &amp;BinDS;
+%do i=1 %to &amp;Bmax;
+%local m&amp;i;
+   create table Temp_BinC&amp;i as select * from &amp;BinDS where Bin=&amp;i;
+   select count(*) into:m&amp;i from Temp_BinC&amp;i;
+%end;
+   create table temp_allVals (BinToSplit num, DatasetName char(80), Value num);
+run;quit;
+
+/* for each of these bins,*/
+%do i=1 %to &amp;Bmax;
+ %if (&amp;&amp;m&amp;i&gt;1) %then %do;  /* if the bin has more than one category */
+ /* find the best split possible  */
+  %BestSplit(Temp_BinC&amp;i, &amp;Method, &amp;i);
+ /* try this split and calculate its value */
+  data temp_trysplit&amp;i;
+set temp_binC&amp;i;
+    if split=1 then Bin=%eval(&amp;Bmax+1);
+  run;
+
+  Data temp_main&amp;i;
+   set &amp;BinDS;
+   if Bin=&amp;i then delete;
+  run;
+  Data Temp_main&amp;i;
+set temp_main&amp;i temp_trysplit&amp;i;
+  run;
+
+ /* Evaluate the value of this split
+as the next best split */
+  %let value=;
+ %GValue(temp_main&amp;i, &amp;Method, Value);
+
+ proc sql noprint;
+  insert into temp_AllVals values(&amp;i, &quot;temp_main&amp;i&quot;, &amp;Value);
+ run;quit;
+
+ %end; /* end of trying for a bin wih more than one category */
+
+%end;
+
+/* find the best split  and return the new bin dataset */
+proc sort data=temp_allVals;
+by descending value;
+run;
+data _null_;
+ set temp_AllVals(obs=1);
+ call symput(&quot;bin&quot;, compress(BinToSplit));
+run;
+
+/* the return dataset is the best bin Temp_trySplit&amp;bin */
+Data &amp;NewBins;
+ set Temp_main&amp;Bin;
+ drop split;
+run;
+
+/* Clean the workspace */
+proc datasets nodetails nolist library=work;
+ delete temp_AllVals %do i=1 %to &amp;Bmax; Temp_BinC&amp;i  temp_TrySplit&amp;i temp_Main&amp;i %end; ;
+run;
+quit;
+%mend;
+
+/*******************************************************/
+/* Macro ReduceCats */
+/*******************************************************/
+%macro  ReduceCats(DSin, IVVar, DVVar, Method, Mmax,  DSVarMap);
+/* Reducing the categories of a categorical variable */
+
+/* Get the categories of the IV, and the percentage 
+   of the DV=1 and DV=0 in each one of them */
+    /* get the categories using CalcCats macro */
+
+proc freq data=&amp;DSin noprint;
+ table &amp;IVVar*&amp;DVvar /out=Temp_cross;
+ table &amp;IVVar /out=Temp_IVtot;
+ run;
+
+/* Rollup on the level of the category */
+proc sort data=temp_cross;
+ by &amp;IVVar;
+run;
+
+proc sort data= temp_IVTot;
+by &amp;IVvar;
+run;
+
+data temp_cont; /* contingency table */
+merge Temp_cross(rename=count=Ni2 ) temp_IVTot (rename=Count=total);
+by &amp;IVVar; 
+PDV1=Ni2/total;
+Ni1=total-Ni2;
+label  Ni2= total=;
+if &amp;DVVar=1 then output;
+drop percent &amp;DVVar;
+run;
+
+/* sort by the percentage of DV=1 */
+proc sort data=temp_cont;
+by PDV1;
+run;
+
+%local m;
+/* put all the category in one node as a string point */
+data temp_cont;
+ set temp_cont (Rename=&amp;IVVar=Var);
+ i=_N_;
+ Bin=1;
+ call symput(&quot;m&quot;, compress(_N_)); /* m=number of categories */
+run;
+
+/* loop until  the maximum number of nodes has been reached */
+%local Nbins ;
+%let Nbins=1; /* Current number of bins */ 
+%DO %WHILE (&amp;Nbins &lt;&amp;MMax);
+    %CandSplits(temp_cont, &amp;method, Temp_Splits);
+    Data Temp_Cont;
+        set Temp_Splits;
+    run;
+    %let NBins=%eval(&amp;NBins+1);
+
+%end; /* end of the WHILE splitting loop  */
+/* the output dataset is DSVarMap */
+data &amp;DSVarMap ;
+ set temp_cont(Rename=Var=&amp;IVVar); 
+ set temp_cont(Rename=Var=Category); /*增加Category，方便后面生成评分卡*****************************************************************/
+ drop Ni2 PDV1 Ni1 i ;
+ label Bin  ='New Category Group' 
+   Category ='Old Category Group'
+total   ='Number of Records';
+ run;
+
+proc sort data=&amp;DSVarMap;
+by Bin;
+run;
+
+ /* clean the workspace */
+proc datasets library=work nodetails nolist;
+ delete temp_cont temp_cross temp_ivtot temp_Splits;
+run;quit;
+%mend;
+
+
+
+
+
+******************************************************************************;
+*** 3名义变量分组映射  ***; 
+******************************************************************************;  
+/* Macro ApplyMap1 */
+/*******************************************************/
+%macro ApplyMap1(DSin, VarX, NewVarX, DSVarMap, DSout);
+/* applying the mapping scheme
+   to be used with ReduceCats */
+
+/* Generating macro variables to replace the cetgories with their bins */
+%local m i;
+proc sql noprint;
+ select count(&amp;VarX) into:m from &amp;DSVarMap;
+quit; 
+%do i=1 %to &amp;m;
+ %local Cat_&amp;i Bin_&amp;i;
+%end; 
+
+data _null_;
+ set &amp;DSVarMap;
+  call symput (&quot;Cat_&quot;||left(_N_), trim(&amp;VarX));
+  call symput (&quot;Bin_&quot;||left(_N_), bin);
+run;
+
+/* the actual replacement */
+Data &amp;DSout;
+ set &amp;DSin;
+ %do i=1 %to &amp;m;
+   IF &amp;VarX = &quot;&amp;&amp;Cat_&amp;i&quot;  THEN &amp;NewVarX=&amp;&amp;Bin_&amp;i;
+ %end;
+ %let n=%eval(&amp;i-1);
+ if &amp;NewVarX=&quot;.&quot; then &amp;NewVarX=&amp;&amp;Bin_&amp;n;  /*如果为其他值，则为Map最后一行*/
+Run; 
+
+%mend;
+
+
+
+
+******************************************************************************;
+*** 4连续变量最优法分割***; 
+******************************************************************************;   
+/*******
+  Credit Risk Scorecards: Development and Implementation using SAS
+  (c)  Mamdouh Refaat
+********/
+
+
+/*******************************************************/
+/* The macros: GValue, CalcMerit, BestSplit, CandSplits,
+   BinContVar
+   macro BinContVar needs all the above 4 macros to run
+   and to apply the binning maps, use ApplyMap2. 
+/*******************************************************/
+
+
+
+/*******************************************************/
+/* Macro GValue */
+/*******************************************************/
+%macro GValue4(BinDS, Method, M_Value);
+/* Calculation of the value of current split  */
+
+/* Extract the frequency table values */
+proc sql noprint;
+  /* Count the number of obs and categories of X and Y */
+   %local i j R N; /* C=2, R=Bmax+1 */
+   select max(bin) into : R from &amp;BinDS;
+   select sum(total) into : N from &amp;BinDS; 
+
+   /* extract n_i_j , Ni_star*/
+   %do i=1 %to &amp;R; 
+  %local N_&amp;i._1 N_&amp;i._2 N_&amp;i._s N_s_1 N_s_2;
+   Select sum(Ni1) into :N_&amp;i._1 from &amp;BinDS where Bin =&amp;i ;
+   Select sum(Ni2) into :N_&amp;i._2 from &amp;BinDS where Bin =&amp;i ;
+   Select sum(Total) into :N_&amp;i._s from &amp;BinDS where Bin =&amp;i ;
+   Select sum(Ni1) into :N_s_1 from &amp;BinDS ;
+   Select sum(Ni2) into :N_s_2 from &amp;BinDS ;
+%end;
+quit;
+%if (&amp;method=1) %then %do; /* Gini */
+    /* substitute in the equations for Gi, G */
+
+      %do i=1 %to &amp;r;
+     %local G_&amp;i;
+     %let G_&amp;i=0;
+       %do j=1 %to 2;
+      %let G_&amp;i = %sysevalf(&amp;&amp;G_&amp;i + &amp;&amp;N_&amp;i._&amp;j * &amp;&amp;N_&amp;i._&amp;j);
+       %end;
+      %let G_&amp;i = %sysevalf(1-&amp;&amp;G_&amp;i/(&amp;&amp;N_&amp;i._s * &amp;&amp;N_&amp;i._s));
+       %end;
+
+       %local G; 
+    %let G=0;
+    %do j=1 %to 2;
+       %let G=%sysevalf(&amp;G + &amp;&amp;N_s_&amp;j * &amp;&amp;N_s_&amp;j);
+    %end;
+    %let G=%sysevalf(1 - &amp;G / (&amp;N * &amp;N));
+
+    /* finally, the Gini ratio Gr */
+    %local Gr;
+    %let Gr=0; 
+     %do i=1 %to &amp;r;
+       %let Gr=%sysevalf(&amp;Gr+ &amp;&amp;N_&amp;i._s * &amp;&amp;G_&amp;i / &amp;N);
+     %end;
+
+    %let &amp;M_Value=%sysevalf(1 - &amp;Gr/&amp;G); 
+%return;
+                    %end;
+%if (&amp;Method=2) %then %do; /* Entropy */
+/* Check on zero counts or missings */
+   %do i=1 %to &amp;R; 
+%do j=1 %to 2;
+      %local N_&amp;i._&amp;j;
+      %if (&amp;&amp;N_&amp;i._&amp;j=.) or (&amp;&amp;N_&amp;i._&amp;j=0) %then %do ; /* return a missing value */ 
+     %let &amp;M_Value=.;
+      %return; 
+          %end;
+ %end;
+   %end;
+/* substitute in the equations for Ei, E */
+  %do i=1 %to &amp;r;
+ %local E_&amp;i;
+ %let E_&amp;i=0;
+   %do j=1 %to 2;
+  %let E_&amp;i = %sysevalf(&amp;&amp;E_&amp;i - (&amp;&amp;N_&amp;i._&amp;j/&amp;&amp;N_&amp;i._s)*%sysfunc(log(%sysevalf(&amp;&amp;N_&amp;i._&amp;j/&amp;&amp;N_&amp;i._s))) );
+   %end;
+  %let E_&amp;i = %sysevalf(&amp;&amp;E_&amp;i/%sysfunc(log(2)));
+   %end;
+
+   %local E; 
+%let E=0;
+%do j=1 %to 2;
+   %let E=%sysevalf(&amp;E - (&amp;&amp;N_s_&amp;j/&amp;N)*%sysfunc(log(&amp;&amp;N_s_&amp;j/&amp;N)) );
+%end;
+%let E=%sysevalf(&amp;E / %sysfunc(log(2)));
+
+/* finally, the Entropy ratio Er */
+
+    %local Er;
+    %let Er=0; 
+     %do i=1 %to &amp;r;
+       %let Er=%sysevalf(&amp;Er+ &amp;&amp;N_&amp;i._s * &amp;&amp;E_&amp;i / &amp;N);
+     %end;
+    %let &amp;M_Value=%sysevalf(1 - &amp;Er/&amp;E); 
+     %return;
+                       %end;
+%if (&amp;Method=3)%then %do; /* The Pearson's X2 statistic */
+ %local X2;
+    %let N=%eval(&amp;n_s_1+&amp;n_s_2);
+    %let X2=0;
+    %do i=1 %to &amp;r;
+      %do j=1 %to 2;
+        %local m_&amp;i._&amp;j;
+        %let m_&amp;i._&amp;j=%sysevalf(&amp;&amp;n_&amp;i._s * &amp;&amp;n_s_&amp;j/&amp;N);
+        %let X2=%sysevalf(&amp;X2 + (&amp;&amp;n_&amp;i._&amp;j-&amp;&amp;m_&amp;i._&amp;j)*(&amp;&amp;n_&amp;i._&amp;j-&amp;&amp;m_&amp;i._&amp;j)/&amp;&amp;m_&amp;i._&amp;j  );  
+      %end;
+    %end;
+    %let &amp;M_value=&amp;X2;
+    %return;
+%end; /* end of X2 */
+%if (&amp;Method=4) %then %do; /* Information value */
+/* substitute in the equation for IV */
+ %local IV;
+ %let IV=0;
+   /* first, check on the values of the N#s */
+    %do i=1 %to &amp;r;
+          %if (&amp;&amp;N_&amp;i._1=.) or (&amp;&amp;N_&amp;i._1=0) or 
+  (&amp;&amp;N_&amp;i._2=.) or (&amp;&amp;N_&amp;i._2=0) or
+  (&amp;N_s_1=) or (&amp;N_s_1=0)or  
+                  (&amp;N_s_2=) or (&amp;N_s_2=0) 
+                %then %do ; /* return a missing value */ 
+       %let &amp;M_Value=.;
+    %return; 
+          %end;
+    %end;
+   %do i=1 %to &amp;r;
+  %let IV = %sysevalf(&amp;IV + (&amp;&amp;N_&amp;i._1/&amp;N_s_1 - &amp;&amp;N_&amp;i._2/&amp;N_s_2)*%sysfunc(log(%sysevalf(&amp;&amp;N_&amp;i._1*&amp;N_s_2/(&amp;&amp;N_&amp;i._2*&amp;N_s_1)))) );
+   %end;
+%let &amp;M_Value=&amp;IV; 
+                        %end;
+
+%mend;
+
+
+
+/*******************************************************/
+/* Macro CalcMerit */
+/*******************************************************/
+%macro CalcMerit4(BinDS, ix, method, M_Value);
+/* claculation of the merit function for the current  */
+/*   Use SQL to find the frquencies of the contingency table  */
+%local n_11 n_12 n_21 n_22 n_1s n_2s n_s1 n_s2; 
+proc sql noprint;
+ select sum(Ni1) into :n_11 from &amp;BinDS where i&lt;=&amp;ix;
+ select sum(Ni1) into :n_21 from &amp;BinDS where i&gt; &amp;ix;
+ select sum(Ni2) into : n_12 from &amp;BinDS where i&lt;=&amp;ix ;
+ select sum(Ni2) into : n_22 from &amp;binDS where i&gt; &amp;ix ;
+ select sum(total) into :n_1s from &amp;BinDS where i&lt;=&amp;ix ;
+ select sum(total) into :n_2s from &amp;BinDS where i&gt; &amp;ix ;
+ select sum(Ni1) into :n_s1 from &amp;BinDS;
+ select sum(Ni2) into :n_s2 from &amp;BinDS;
+quit;
+/* Calcualte the merit functino according to its type */
+/* The case of Gini */
+%if (&amp;method=1) %then %do;
+%local N G1 G2 G Gr;
+    %let N=%eval(&amp;n_1s+&amp;n_2s);
+    %let G1=%sysevalf(1-(&amp;n_11*&amp;n_11+&amp;n_12*&amp;n_12)/(&amp;n_1s*&amp;n_1s));
+    %let G2=%sysevalf(1-(&amp;n_21*&amp;n_21+&amp;n_22*&amp;n_22)/(&amp;n_2s*&amp;n_2s));
+    %let G =%sysevalf(1-(&amp;n_s1*&amp;n_s1+&amp;n_s2*&amp;n_s2)/(&amp;N*&amp;N));
+    %let GR=%sysevalf(1-(&amp;n_1s*&amp;G1+&amp;n_2s*&amp;G2)/(&amp;N*&amp;G));
+    %let &amp;M_value=&amp;Gr;
+    %return;
+                %end;
+/* The case of Entropy */
+%if (&amp;method=2) %then %do;
+   %local N E1 E2 E Er;
+    %let N=%eval(&amp;n_1s+&amp;n_2s);
+    %let E1=%sysevalf(-( (&amp;n_11/&amp;n_1s)*%sysfunc(log(%sysevalf(&amp;n_11/&amp;n_1s))) + 
+                         (&amp;n_12/&amp;n_1s)*%sysfunc(log(%sysevalf(&amp;n_12/&amp;n_1s)))) / %sysfunc(log(2)) ) ;
+    %let E2=%sysevalf(-( (&amp;n_21/&amp;n_2s)*%sysfunc(log(%sysevalf(&amp;n_21/&amp;n_2s))) + 
+                         (&amp;n_22/&amp;n_2s)*%sysfunc(log(%sysevalf(&amp;n_22/&amp;n_2s)))) / %sysfunc(log(2)) ) ;
+    %let E =%sysevalf(-( (&amp;n_s1/&amp;n  )*%sysfunc(log(%sysevalf(&amp;n_s1/&amp;n   ))) + 
+                         (&amp;n_s2/&amp;n  )*%sysfunc(log(%sysevalf(&amp;n_s2/&amp;n   )))) / %sysfunc(log(2)) ) ;
+    %let Er=%sysevalf(1-(&amp;n_1s*&amp;E1+&amp;n_2s*&amp;E2)/(&amp;N*&amp;E));
+    %let &amp;M_value=&amp;Er;
+    %return;
+                %end;
+/* The case of X2 pearson statistic */
+%if (&amp;method=3) %then %do;
+ %local m_11 m_12 m_21 m_22 X2 N i j;
+    %let N=%eval(&amp;n_1s+&amp;n_2s);
+    %let X2=0;
+    %do i=1 %to 2;
+      %do j=1 %to 2;
+        %let m_&amp;i.&amp;j=%sysevalf(&amp;&amp;n_&amp;i.s * &amp;&amp;n_s&amp;j/&amp;N);
+        %let X2=%sysevalf(&amp;X2 + (&amp;&amp;n_&amp;i.&amp;j-&amp;&amp;m_&amp;i.&amp;j)*(&amp;&amp;n_&amp;i.&amp;j-&amp;&amp;m_&amp;i.&amp;j)/&amp;&amp;m_&amp;i.&amp;j  );  
+      %end;
+    %end;
+    %let &amp;M_value=&amp;X2;
+    %return;
+%end;
+/* The case of the information value */
+%if (&amp;method=4) %then %do;
+  %local IV;
+  %let IV=%sysevalf( ((&amp;n_11/&amp;n_s1)-(&amp;n_12/&amp;n_s2))*%sysfunc(log(%sysevalf((&amp;n_11*&amp;n_s2)/(&amp;n_12*&amp;n_s1)))) 
++((&amp;n_21/&amp;n_s1)-(&amp;n_22/&amp;n_s2))*%sysfunc(log(%sysevalf((&amp;n_21*&amp;n_s2)/(&amp;n_22*&amp;n_s1)))) );
+   %let &amp;M_Value=&amp;IV;
+   %return;
+%end;
+%mend;
+
+
+/*******************************************************/
+/* Macro BestSplit */
+/*******************************************************/
+%macro BestSplit4(BinDs, Method, BinNo);
+/* find the best split for one bin dataset */
+/* the bin size=mb */
+%local mb i value BestValue BestI;
+proc sql noprint;
+ select count(*) into: mb from &amp;BinDs where Bin=&amp;BinNo; 
+quit;
+/* find the location of the split on this list */
+%let BestValue=0;
+%let BestI=1;
+%do i=1 %to %eval(&amp;mb-1);
+  %let value=;
+  %CalcMerit4(&amp;BinDS, &amp;i, &amp;method, Value);
+  %if %sysevalf(&amp;BestValue&lt;&amp;value) %then %do;
+  %let BestValue=&amp;Value;
+      %let BestI=&amp;i;
+       %end;
+%end;
+/* Number the bins from 1-&gt;BestI =BinNo, and from BestI+1-&gt;mb =NewBinNo */
+/* split the BinNo into two bins */ 
+data &amp;BinDS;
+ set &amp;BinDS;
+  if i&lt;=&amp;BestI then Split=1;
+  else Split=0;
+drop i;
+run;
+proc sort data=&amp;BinDS; 
+by Split;
+run;
+/* reorder i within each bin */
+data &amp;BinDS;
+retain i 0;
+set &amp;BinDs;
+ by Split;
+ if first.split then i=1;
+ else i=i+1;
+run;
+%mend;
+
+
+/*******************************************************/
+/* Macro CandSplits */
+/*******************************************************/
+%macro CandSplits4(BinDS, Method, NewBins);
+/* Generate all candidate splits from current
+   Bins and select the best new bins */
+/* first we sort the dataset OldBins by PDV1 and Bin */
+proc sort data=&amp;BinDS;
+by Bin PDV1;
+run;
+/* within each bin, separate the data into a candidate dataset */
+%local Bmax i value;
+proc sql noprint;
+ select max(bin) into: Bmax from &amp;BinDS;
+%do i=1 %to &amp;Bmax; 
+%local m&amp;i;
+   create table Temp_BinC&amp;i as select * from &amp;BinDS where Bin=&amp;i;
+   select count(*) into:m&amp;i from Temp_BinC&amp;i; 
+%end;
+   create table temp_allVals (BinToSplit num, DatasetName char(80), Value num);
+run;quit;
+/* for each of these bins,*/
+%do i=1 %to &amp;Bmax;
+ %if (&amp;&amp;m&amp;i&gt;1) %then %do;  /* if the bin has more than one category */
+ /* find the best split possible  */
+  %BestSplit4(Temp_BinC&amp;i, &amp;Method, &amp;i);
+ /* try this split and calculate its value */
+  data temp_trysplit&amp;i;
+set temp_binC&amp;i;
+    if split=1 then Bin=%eval(&amp;Bmax+1);
+  run;
+  Data temp_main&amp;i;
+   set &amp;BinDS;
+   if Bin=&amp;i then delete; 
+  run;
+  Data Temp_main&amp;i;
+set temp_main&amp;i temp_trysplit&amp;i;
+  run;
+ /* Evaluate the value of this split 
+as the next best split */
+  %let value=;
+ %GValue4(temp_main&amp;i, &amp;Method, Value);
+ proc sql noprint; 
+  insert into temp_AllVals values(&amp;i, &quot;temp_main&amp;i&quot;, &amp;Value); 
+ run;quit; 
+ %end; /* end of trying for a bin wih more than one category */
+%end;
+/* find the best split  and return the new bin dataset */
+proc sort data=temp_allVals;
+by descending value;
+run;
+data _null_;
+ set temp_AllVals(obs=1);
+ call symput(&quot;bin&quot;, compress(BinToSplit));
+run;
+/* the return dataset is the best bin Temp_trySplit&amp;bin */
+Data &amp;NewBins;
+ set Temp_main&amp;Bin;
+ drop split;
+run;
+/* Clean the workspace */
+proc datasets nodetails nolist library=work;
+ delete temp_AllVals %do i=1 %to &amp;Bmax; Temp_BinC&amp;i  temp_TrySplit&amp;i temp_Main&amp;i %end; ; 
+run;
+quit;
+%mend;
+
+
+/*******************************************************/
+/* Macro BinContVar */
+/*******************************************************/
+%macro BinContVar(DSin, IVVar, DVVar, Method, MMax, Acc, DSVarMap);
+/* Optimal binning of the continuous variable */
+
+/* find the maximum and minimum values */
+%local VarMax VarMin;
+proc sql noprint;
+ select min(&amp;IVVar), max(&amp;IVVar) into :VarMin, :VarMax from &amp;DSin;
+quit;
+/* divide the range to a number of bins as needed by Acc */
+%local Mbins i MinBinSize;
+%let Mbins=%sysfunc(int(%sysevalf(1.0/&amp;Acc)));
+%let MinBinSize=%sysevalf((&amp;VarMax-&amp;VarMin)/&amp;Mbins);
+/* calculate the bin boundaries between the max, min */
+%do i=1 %to %eval(&amp;Mbins);
+ %local Lower_&amp;i Upper_&amp;i;
+ %let Upper_&amp;i = %sysevalf(&amp;VarMin + &amp;i * &amp;MinBinSize);
+ %let Lower_&amp;i = %sysevalf(&amp;VarMin + (&amp;i-1)*&amp;MinBinSize);
+%end;
+%let Lower_1 = %sysevalf(&amp;VarMin-0.0001);  /* just to make sure that no digits get trimmed */
+%let Upper_&amp;Mbins=%sysevalf(&amp;VarMax+0.0001);
+/* separate the IVVar, DVVAr in a small dataset for faster operation */
+data Temp_DS;
+ set &amp;DSin;
+ %do i=1 %to %eval(&amp;Mbins-1);
+  if &amp;IVVar&gt;=&amp;&amp;Lower_&amp;i and &amp;IVVar &lt; &amp;&amp;Upper_&amp;i Then Bin=&amp;i;
+ %end;
+  if &amp;IVVar&gt;=&amp;&amp;Lower_&amp;Mbins and &amp;IVVar &lt;= &amp;&amp;Upper_&amp;MBins Then Bin=&amp;MBins;
+ keep &amp;IVVar &amp;DVVar Bin;
+run;
+/* Generate a dataset with the initial upper, lower limits per bin */
+data temp_blimits;
+ %do i=1 %to %Eval(&amp;Mbins-1);
+   Bin_LowerLimit=&amp;&amp;Lower_&amp;i;
+   Bin_UpperLimit=&amp;&amp;Upper_&amp;i;
+   Bin=&amp;i;
+   output;
+ %end;
+   Bin_LowerLimit=&amp;&amp;Lower_&amp;Mbins;
+   Bin_UpperLimit=&amp;&amp;Upper_&amp;Mbins;
+   Bin=&amp;Mbins;
+   output;
+run;
+proc sort data=temp_blimits;
+by Bin;
+run;
+/* Find the frequencies of DV=1, DV=0 using freq */
+proc freq data=Temp_DS noprint;
+ table Bin*&amp;DVvar /out=Temp_cross;
+ table Bin /out=Temp_binTot;
+ run;
+/* Rollup on the level of the Bin */
+proc sort data=temp_cross;
+ by Bin;
+run;
+proc sort data= temp_BinTot;
+by Bin;
+run;
+data temp_cont; /* contingency table */
+merge Temp_cross(rename=count=Ni2 ) temp_BinTot(rename=Count=total) temp_BLimits ;
+by Bin; 
+Ni1=total-Ni2;
+PDV1=bin; /* just for conformity with the case of nominal iv */
+label  Ni2= total=;
+if Ni1=0 then output;
+else if &amp;DVVar=1 then output;
+drop percent &amp;DVVar;
+run;
+data temp_contold;
+set temp_cont;
+run;
+
+/* merge all bins that have either Ni1 or Ni2 or total =0 */
+proc sql noprint;
+%local mx;
+ %do i=1 %to &amp;Mbins;
+  /* get all the values */
+  select count(*) into : mx from Temp_cont where Bin=&amp;i;
+  %if (&amp;mx&gt;0) %then %do;
+  select Ni1, Ni2, total, bin_lowerlimit, bin_upperlimit into 
+ :Ni1,:Ni2,:total, :bin_lower, :bin_upper 
+  from temp_cont where Bin=&amp;i;
+    %if (&amp;i=&amp;Mbins) %then %do;
+       select max(bin) into :i1 from temp_cont where Bin&lt;&amp;Mbins;
+      %end;
+    %else %do;
+       select min(bin) into :i1 from temp_cont where Bin&gt;&amp;i;
+       %end;
+   %if (&amp;Ni1=0) or (&amp;Ni2=0) or (&amp;total=0) %then %do;
+            update temp_cont set 
+               Ni1=Ni1+&amp;Ni1 ,
+                       Ni2=Ni2+&amp;Ni2 , 
+                       total=total+&amp;Total 
+            where bin=&amp;i1;
+            %if (&amp;i&lt;&amp;Mbins) %then %do;
+            update temp_cont set Bin_lowerlimit = &amp;Bin_lower where bin=&amp;i1;
+              %end;
+            %else %do;
+            update temp_cont set Bin_upperlimit = &amp;Bin_upper where bin=&amp;i1;
+                   %end;
+           delete from temp_cont where bin=&amp;i;
+  %end; 
+  %end;
+%end;
+quit;
+proc sort data=temp_cont;
+by pdv1;
+run;
+%local m;
+/* put all the category in one node as a string point */
+data temp_cont;
+ set temp_cont;
+ i=_N_;
+ Var=bin;
+ Bin=1;
+ call symput(&quot;m&quot;, compress(_N_)); /* m=number of categories */
+run;
+/* loop until  the maximum number of nodes has been reached */
+%local Nbins ;
+%let Nbins=1; /* Current number of bins */ 
+%DO %WHILE (&amp;Nbins &lt;&amp;MMax);
+    %CandSplits4(temp_cont, &amp;method, Temp_Splits);
+    Data Temp_Cont;
+        set Temp_Splits;
+    run;
+    %let NBins=%eval(&amp;NBins+1);
+%end; /* end of the WHILE splitting loop  */
+/* shape the output map */
+data temp_Map1 ;
+ set temp_cont(Rename=Var=OldBin);
+ drop Ni2 PDV1 Ni1 i ;
+ run;
+proc sort data=temp_Map1;
+by Bin OldBin ;
+run;
+/* merge the bins and calculate boundaries */
+data temp_Map2;
+ retain  LL 0 UL 0 BinTotal 0;
+ set temp_Map1;
+by Bin OldBin;
+Bintotal=BinTotal+Total;
+if first.bin then do;
+  LL=Bin_LowerLimit;
+  BinTotal=Total;
+End;
+if last.bin then do;
+ UL=Bin_UpperLimit;
+ output;
+end;
+drop Bin_lowerLimit Bin_upperLimit Bin OldBin total;
+ run;
+proc sort data=temp_map2;
+by LL;
+run;
+data &amp;DSVarMap;
+set temp_map2;
+Bin=_N_;
+run;
+/* Clean the workspace */
+proc datasets nodetails library=work nolist;
+ delete temp_bintot temp_blimits temp_cont temp_contold temp_cross temp_ds temp_map1
+temp_map2 temp_splits;
+run; quit;
+%mend;
+
+
+
+
+******************************************************************************;
+*** 5连续变量分组映射  ***; 
+******************************************************************************;   
+/*******
+  Credit Risk Scorecards: Development and Implementation using SAS
+  (c)  Mamdouh Refaat
+********/
+
+
+/*******************************************************/
+/* Macro ApplyMap2 */
+/*******************************************************/
+%macro ApplyMap2(DSin, VarX, NewVarX, DSVarMap, DSout);
+/* Applying a mapping scheme; to be used with 
+ macro BinContVar */
+
+/* Generating macro variables to replace the cetgories with their bins */
+%local m i;
+proc sql noprint;
+ select count(Bin) into:m from &amp;DSVarMap;
+quit; 
+%do i=1 %to &amp;m;
+ %local Upper_&amp;i Lower_&amp;i Bin_&amp;i;
+%end; 
+data _null_;
+ set &amp;DSVarMap;
+  call symput (&quot;Upper_&quot;||left(_N_), UL);
+  call symput (&quot;Lower_&quot;||left(_N_), LL);
+  call symput (&quot;Bin_&quot;||left(_N_), Bin);
+run;
+/* the actual replacement */
+Data &amp;DSout;
+ set &amp;DSin;
+ /* first bin - open left */
+ IF &amp;VarX &lt; &amp;Upper_1 Then &amp;NewVarX=&amp;Bin_1;
+ /* intermediate bins */
+ %do i=2 %to %eval(&amp;m-1);
+   if &amp;VarX &gt;= &amp;&amp;Lower_&amp;i and &amp;VarX &lt; &amp;&amp;Upper_&amp;i Then &amp;NewVarX=&amp;&amp;Bin_&amp;i;
+ %end;
+/* last bin - open right */
+   if &amp;VarX &gt;= &amp;&amp;Lower_&amp;i  Then &amp;NewVarX=&amp;&amp;Bin_&amp;i;  
+
+Run; 
+%mend;
+
+
+
+******************************************************************************;
+*** 6变量woe计算与映射 ***; 
+******************************************************************************; 
+/*******
+  Credit Risk Scorecards: Development and Implementation using SAS
+  (c)  Mamdouh Refaat
+********/
+
+/*******************************************************/
+/* Macro: CalcWOE */
+/*******************************************************/
+%macro CalcWOE(DsIn, IVVar, DVVar, WOEDS, WOEVar, DSout);
+/* Calculating the WOE of an Independent variable IVVar and 
+adding it to the data set DSin (producing a different output 
+dataset DSout). The merging is done using PROC SQL to avoid 
+the need to sort for matched merge. The new woe variable
+is called teh WOEVar. The weight of evidence values
+are also produced in the dataset WOEDS*/
+
+/* Calculate the frequencies of the categories of the DV in each
+of the bins of the IVVAR */
+
+PROC FREQ data =&amp;DsIn noprint;
+  tables &amp;IVVar * &amp;DVVar/out=Temp_Freqs;
+run;
+
+/* sort them */
+proc sort data=Temp_Freqs;
+ by &amp;IVVar &amp;DVVar;
+run;
+
+/* Sum the Goods and bads and calcualte the WOE for each bin */
+Data Temp_WOE1;
+ set Temp_Freqs;
+ retain C1 C0 C1T 0 C0T 0;
+ by &amp;IVVar &amp;DVVar;
+ if first.&amp;IVVar then do;
+  C0=Count;
+      C0T=C0T+C0;
+      end;
+ if last.&amp;IVVar then do;
+   C1=Count;
+       C1T=C1T+C1;
+       end;
+
+ if last.&amp;IVVar then output;
+ drop Count PERCENT &amp;DVVar;
+call symput (&quot;C0T&quot;, C0T);
+call symput (&quot;C1T&quot;, C1T);
+run;
+
+/* summarize the WOE values ina woe map */ 
+Data &amp;WOEDs;
+ set Temp_WOE1;
+  GoodDist=C0/&amp;C0T;
+  BadDist=C1/&amp;C1T;
+  if(GoodDist&gt;0 and BadDist&gt;0)Then   WOE=log(BadDist/GoodDist);
+  Else WOE=.;
+  keep &amp;IVVar WOE;
+run;
+
+proc sort data=&amp;WOEDs;
+ by WOE;
+ run;
+
+/* Match the maps with the values and create the output
+dataset */
+proc sql noprint;
+    create table &amp;dsout as 
+    select a.* , b.woe as &amp;WOEvar from &amp;dsin a, &amp;woeds b where a.&amp;IvVar=b.&amp;IvVar; 
+quit;
+
+/* Clean the workspace */
+proc datasets library=work nodetails nolist;
+ delete Temp_Freqs Temp_WOE1;
+run; quit;
+%mend;
+
+
+******************************************************************************;
+*** 11混合矩阵 ***; 
+******************************************************************************;  
+/*******
+  Credit Risk Scorecards: Development and Implementation using SAS
+  (c)  Mamdouh Refaat
+********/
+
+/*******************************************************/
+/* Macro ConfMat  */
+/*******************************************************/
+
+%macro ConfMat(DSin, ProbVar, DVVar, Cutoff, DSCM);
+/* 
+Calculation of the Confusion matrix from the input dataset DSIn
+with a probability variable ProbVar, and the actual dependent
+variable DVVar. DSCM will store the resulting Confusion matrix
+
+The calculation is done with a cutoff between 0,1.
+*/
+
+/* extract the actual DVVar, and the predicted outcome
+   to a temp dataset to make the calculation faster, 
+   calculate the predicted outcome */
+data temp;
+ set &amp;DSin;
+ if &amp;ProbVar&gt;=&amp;Cutoff then _PDV=1;
+  else _PDV=0;
+ keep &amp;DVVAR  _PDV;
+run;
+
+/* compute the total the elements of the confusion matrix
+   using simple sql queries */
+%local Ntotal P N TP TN FP FN;
+proc sql noprint;
+ select sum(&amp;DVVar) into :P from temp;
+ select count(*) into :Ntotal from temp;
+ select sum(_PDV) into :TP from temp where &amp;DVVar=1;
+ select sum(_PDV) into :FP from temp where &amp;DVVar=0; 
+quit;
+%let N=%eval(&amp;Ntotal-&amp;P);
+%let FN=%eval(&amp;P-&amp;TP);
+%let TN=%eval(&amp;N-&amp;FP);
+
+/* Store the results in DSCM */
+data &amp;DSCM;
+ TP=&amp;TP;  TN=&amp;TN;
+ FP=&amp;FP;  FN=&amp;FN;
+ P=&amp;P;  N=&amp;N;
+ Ntotal=&amp;Ntotal;
+run;
+
+
+/* Clean workspace */
+proc datasets library=work nodetails nolist;
+delete temp;
+run; quit;
+
+%mend;
+
+
+******************************************************************************;
+*** 12绘制KS曲线   ***; 
+******************************************************************************;  
+/*******
+  Credit Risk Scorecards: Development and Implementation using SAS
+  (c)  Mamdouh Refaat
+********/
+
+
+/*******************************************************/
+/* Macro KSStat  */
+/*******************************************************/
+%macro KSStat(DSin, ProbVar, DVVar, DSKS, M_KS);
+/* Calculation of the KS Statistic from the results of 
+   a predictive model. DSin is the dataset with a dependent
+   variable DVVar, and a predicted probability ProbVar. 
+   The KS statistic is returnd in the parameter M_KS. 
+   DSKS contains the data of the Lorenz curve for good and bad
+   as well as the KS Curve. 
+
+*/
+
+/* Sort the observations using the predicted Probability */
+proc sort data=&amp;DsIn;
+by &amp;ProbVar;
+run;
+
+/* Find the total number of Positives and Negatives */
+proc sql noprint;
+ select sum(&amp;DVVar) into:P from &amp;DSin;
+ select count(*) into :Ntot from &amp;DSin;
+ quit;
+ %let N=%eval(&amp;Ntot-&amp;P); /* Number of negative */
+
+
+ /* The base of calculation is 100 tiles */
+
+/* Count number of positive and negatives per tile, their proportions and 
+cumulative proportions decile */
+data &amp;DSKS;
+set &amp;DsIn nobs=NN;
+by &amp;ProbVar;
+retain tile 1  totP  0 totN 0;
+Tile_size=ceil(NN/100);
+
+if &amp;DVVar=1 then totP=totP+&amp;DVVar;
+else totN=totN+1;
+
+Pper=totP/&amp;P;
+Nper=totN/&amp;N;
+
+/* end of tile? */
+if _N_ = Tile*Tile_Size then 
+  do;
+  output;
+   if Tile &lt;100 then  
+   do;
+ Tile=Tile+1;
+         SumResp=0;
+       end;
+  end;  
+keep Tile Pper Nper;
+run;
+
+/* add the point of zero  */
+data temp;
+     Tile=0;
+     Pper=0;
+     NPer=0;
+run;
+
+Data &amp;DSKS;
+  set temp &amp;DSKS;
+run;
+
+
+/* Scale the tile to represent percentage and add labels*/
+data &amp;DSKS;
+    set &amp;DSKS;
+    Tile=Tile/100;
+    label Pper='Percent of Positives';
+    label NPer ='Percent of Negatives';
+    label Tile ='Percent of population';
+
+    /* calculate the KS Curve */
+    KS=NPer-PPer;
+run;
+
+/* calculate the KS statistic */
+
+proc sql noprint;
+ select max(KS) into :&amp;M_KS from &amp;DSKS;
+run; quit;
+
+/* Clean the workspace */
+proc datasets library=work nodetails nolist;
+ delete temp ;
+run;
+quit;
+
+%mend;
+
+
+%macro PlotKS(DSKS);
+/* Plotting the KS curve using gplot using simple options */
+
+ symbol1 value=dot color=red   interpol=join  height=1;
+ legend1 position=top;
+ symbol2 value=dot color=blue  interpol=join  height=1;
+ symbol3 value=dot color=green interpol=join  height=1;
+
+proc gplot data=&amp;DSKS;
+
+  plot( NPer PPer KS)*Tile / overlay legend=legend1;
+ run;
+quit;
+
+    goptions reset=all;
+%mend;
+
+
+
+******************************************************************************;
+*** 13绘制ROC曲线  ***; 
+******************************************************************************;   
+/*******
+  Credit Risk Scorecards: Development and Implementation using SAS
+  (c)  Mamdouh Refaat
+********/
+
+
+/*******************************************************/
+/* Macro ROC  */
+/*******************************************************/
+%macro ROC(DSin, ProbVar, DVVar, DSROC, M_CStat);
+/* 
+Calculation of the ROC Chart from the input dataset DSIn
+with a probability variable ProbVar, and the actual dependent
+variable DVVar. Iplot=1 will plot the ROC in the output window,
+and DSROC will store the resulting ROC data
+
+The calculation is done with a precision of delta (eg. 0.1 or 0.01)
+*/
+%let delta=0.01;
+
+/* Sort the dataset using the probability in descending order */
+
+proc sort data=&amp;DSin;
+by descending &amp;ProbVar;
+run;
+
+/* compute the total number of observations, total number of positives
+   and negatives */
+
+proc sql noprint;
+ select sum(&amp;DVVar) into :NP from &amp;DSin;
+ select count(*) into :N from &amp;DSin;
+quit;
+%let NN=%eval(&amp;N-&amp;NP);
+
+
+
+/* This is the main calculation loop for the elements of the 
+  confusion matrix */
+
+data temp1;
+ set &amp;DSin;
+  by descending &amp;ProbVar;
+
+retain TP 0 FP 0 TN &amp;NN FN &amp;NP level 1.0;
+
+  NN=&amp;NN;
+  NP=&amp;NP;
+
+  Sensitivity=TP/NP;
+  Specificity1=FP/NN;
+
+/* and their labels */
+  label Sensitivity ='Sensitivity';
+  label Specificity1 ='1-Specificity';
+
+if &amp;ProbVar&lt;level then 
+   do;
+      output;
+      level=level-&amp;Delta;
+   end;
+
+
+  if &amp;DVVar=1 then TP=TP+1;
+  if &amp;DVVar=0 then FP=FP+1;
+
+
+  FN=&amp;NP-TP;
+  TN=&amp;NN-FP;
+keep TP FP TN FN NN NP Level Sensitivity Specificity1;  
+run;
+
+/* The last entry in the ROC Data */
+
+data temp2;
+    level=0;
+    TP=&amp;NP;
+    FP=0;
+    TN=0;
+    FN=&amp;NN;
+    NP=&amp;NP;
+    NN=&amp;NN;
+    Sensitivity=1;
+    Specificity1=1;
+run;
+
+/* Append the last row */
+data &amp;DSROC;
+ set temp1 temp2;
+ run;
+
+ /* Calculate the area under the curve using the 
+   trapezoidal integration approximation.
+   C=0.5 * Sum_(k=1)^(n)[X_k - X_(k-1)]*[Y_k + Y_(k-1)]
+*/
+%local C;
+data _null_; /* use the null dataset for the summation */
+retain Xk 0 Xk1 0 Yk 0 Yk1 0 C 0;
+set &amp;DSROC;
+
+Yk=Sensitivity;
+Xk=Specificity1;
+
+C=C+0.5*(Xk-Xk1)*(Yk+Yk1);
+
+/* next iteration */
+Xk1=Xk;
+Yk1=Yk;
+
+/* output the C-statistic */
+call symput ('C', compress(c) );
+run;
+
+/* Store the value of C in the output macro parameter M_CStat */
+
+%let &amp;M_CStat=&amp;C;
+
+/* Clean workspace */
+proc datasets library=work nodetails nolist;
+delete temp1 temp2;
+run;
+quit;
+
+
+%mend;
+
+
+/*******
+  Credit Risk Scorecards: Development and Implementation using SAS
+  (c)  Mamdouh Refaat
+********/
+
+
+/*******************************************************/
+/* Macro PlotROC  */
+/*******************************************************/
+%macro PlotROC(DSROC);
+goptions reset=global gunit=pct border cback=white
+ colors=(black blue green red)
+ ftitle=swissb ftext=swiss htitle=6 htext=4;
+
+
+symbol1 color=red
+interpol=join
+;
+
+  proc gplot data=&amp;DSROC;
+   plot Sensitivity*Specificity1 / haxis=0 to 1 by 0.1
+vaxis=0 to 1 by 0.1
+hminor=3
+vminor=1
+
+  vref=0.2 0.4 0.6 0.8 1.0
+lvref=2
+cvref=blue
+caxis=blue
+ctext=red;
+run;
+quit;
+
+    goptions reset=all;
+%mend;
+
+
+******************************************************************************;
+*** 13评分卡实施   ***; 
+******************************************************************************;   
+/*******
+  Credit Risk Scorecards: Development and Implementation using SAS
+  (c)  Mamdouh Refaat
+********/
+
+
+/*******************************************************/
+/* Macro SCScale */
+/*******************************************************/
+%macro SCScale(BasePoints, BaseOdds, PDO, M_alpha, M_beta);
+/* this macro calculates alpha, beta to scale the scorecard
+   such that points=alpha + beta (ln odds) 
+   beta = pdo/ln(2)
+   alpha=basePoints - beta * (ln base odds)
+*/
+%local bb;
+%let bb=%sysevalf(&amp;PDO / %sysfunc(log(2)));
+%let &amp;M_Beta = &amp;bb;
+%let &amp;M_alpha= %sysevalf(&amp;BasePoints - &amp;bb * %sysfunc(log(&amp;BaseOdds)));
+%mend;
+
+
+
+
+/*******************************************************/
+/* Macro GenSCDS */
+/*******************************************************/
+%macro GenSCDS(ParamDS, Lib, DVName, BasePoints, BaseOdds, PDO, SCDS);
+/*
+Generation of a scorecard dataset using the predictive model stored in ParamDS
+The datasets are in the library LIB
+*/
+
+/* first, get alpha and beta from the base points and pdo */
+%local alpha beta;
+%let alpha=;
+%let beta=;
+%SCScale(&amp;BasePoints, &amp;BaseOdds, &amp;PDO, alpha, beta);
+
+/* read the model coefficients from the model dataset */
+
+proc transpose data =&amp;ParamDS out=temp_mpt;
+run;
+
+
+/* remove ignore variables and ln likeilhood value, and get the intercept */
+%local Intercept;
+
+data temp_mptc;
+ set temp_mpt;
+length VarName $32.;
+length MapDS  $32.;
+length WOEDS $32.;
+if _Name_ eq 'Intercept' then do;
+  call symput('Intercept', compress(&amp;DVName));
+  delete;
+  end;
+ /* Make all names upper case */
+  *_Name_=upcase(_Name_);
+
+ /* restore variable names, names of maps, WOE datasets */
+  ix=find(upcase(_Name_),'_WOE')-1;
+  if ix &gt;0 then VarName=substr(_Name_,1,ix);
+  MapDS=compress(VarName)||'_MAP';
+  BinName=compress(VarName)||'_b';
+  WOEDS=_Name_;
+  Parameter=&amp;DVName;
+
+  if _Name_ ne '_LNLIKE_' and &amp;DVName ne . ;
+  keep VarName BinName MapDS WOEDS Parameter;
+run;
+
+/* Scorecard Base points = alpha + intercept * beta */
+  %local SCBase; 
+  %let SCBase = %sysfunc(int(&amp;alpha + &amp;beta * &amp;Intercept));
+
+
+%local i N;
+data _null_;
+ set temp_mptc;
+  call symput('N',compress(_N_));
+run;
+%do i=1 %to &amp;N;
+ %local V_&amp;i P_&amp;i WOE_&amp;i Map_&amp;i;
+%end;
+
+/* Start merging the scorecard table */
+data _null_;
+ set temp_mptc;
+  call symput('V_'||left(_N_),compress(VarName));
+  call symput('B_'||left(_N_),compress(BinName));
+  call symput('P_'||left(_N_),compress(Parameter));
+  call symput('WOE_'||left(_N_),&quot;&amp;Lib..&quot;||compress(WOEDS));
+  call symput('Map_'||left(_N_),&quot;&amp;lib..&quot;||compress(MapDS));
+run;
+
+proc sql noprint;
+ create table &amp;SCDS (VarName char(80), UL num, LL num,  Points num);
+ insert into &amp;SCDS values('_BasePoints_' , 0, 0 ,  &amp;SCBase);
+run; quit;
+
+%do i=1 %to &amp;N;
+
+   data temp1;
+ set &amp;&amp;WOE_&amp;i;
+       bin=&amp;&amp;B_&amp;i;
+       VarName=&quot;&amp;&amp;V_&amp;i&quot;;
+       ModelParameter=&amp;&amp;P_&amp;i;
+   run;
+
+   proc sort data=temp1;
+by bin;
+   run;
+   /* check the type of the nominal variable */
+    proc contents data=&amp;&amp;Map_&amp;i out=temp_cont nodetails noprint;
+    run;
+    %local MapType;
+    proc sql noprint; 
+     select Type into :MapType from temp_cont where upcase(Name)='CATEGORY';
+    run; quit;
+    %if &amp;MapType =1 %then %do; /* numeric variable */
+     Data &amp;&amp;Map_&amp;i;
+      set &amp;&amp;Map_&amp;i;
+       N_category=Category;
+       drop category;
+     run;
+    %end;
+
+   proc sort data=&amp;&amp;Map_&amp;i;
+by bin;
+   run;
+
+data temp_v;
+ length category $70.;
+     informat category $70.;
+     format category $70.;
+ merge temp1 &amp;&amp;Map_&amp;i;
+      by bin;
+    run;
+
+    proc sort data=temp_v;
+     by VarName;
+    run;
+
+proc sort data=&amp;SCDS;
+     by VarName;
+run;
+
+data temp_all;
+     merge &amp;&amp;SCDS temp_v;
+      by VarName;
+    run;
+
+Data &amp;SCDS;
+      set temp_all;
+      drop &amp;&amp;B_&amp;i;
+    run;
+
+%end;
+/* Calculate the points and drop unnecessary varibles, 
+   and setup the variable type for ease of generation of
+   code: VarType 1 = continuous, 2=nominal string, 3=nominal numeric,
+ 0= Base Points */
+
+data &amp;SCDS;
+  set &amp;SCDS;
+   if VarName = '_BasePoints_' then VarType=0;
+   else do;
+   Points=-WOE*ModelParameter * &amp;beta ;
+if UL ne . and LL ne . then VarType=1;
+  else if N_Category eq . then VarType=2;
+    else VarType=3;
+    end;
+
+/*   drop WOE bin ModelParameter;*/
+    keep VarName UL LL Points WOE bin ModelParameter BinTotal VarType Category N_Category;
+
+run;
+
+proc sort data=&amp;SCDS;
+ by VarType VarName;
+run;
+
+
+
+/* clean up workspace */
+proc datasets library=work nodetails;
+delete temp1 temp_all temp_cont temp_mpt temp_mptc temp_v;
+run; quit;
+
+
+
+%mend;
+
+
+
+
+/*******
+  Credit Risk Scorecards: Development and Implementation using SAS
+  (c)  Mamdouh Refaat
+********/
+
+
+
+/*******************************************************/
+/* Macro SCSASCode */
+/*******************************************************/
+%macro SCSasCode(SCDS,BasePoints, BaseOdds, PDO, IntOpt,FileName);
+/* writing the scorecard generated by the scorecard dataset to an output
+  file FileName generating SAS code
+  If The option IntOpt=1 then we convert the points to integer values
+  otherwise they are left as numbers */
+
+/* direct the output to the filename */
+
+proc sort data=&amp;SCDS;
+by VarType VarName;
+run;
+
+data _null_;
+set &amp;SCDS nobs=nx;
+by VarType VarName;
+file &quot;&amp;FileName&quot;;
+length cond $300.;
+length value $300.;
+
+if _N_ =1 then do;
+    put '/*********************************************/' ;
+    put '/*********************************************/';
+    put '/***** Automatically Generated Scorecard *****/';
+    put '/*********************************************/';
+    put '/************SAS CODE ********/';
+    put;
+    put '/* Scorecard Scale : */';
+    put &quot;/*  Odds of [ 1 : &amp;BaseOdds ] at  [ &amp;BasePoints ] Points &quot;;
+put &quot; with PDO of [ &amp;PDO ] */&quot;;
+    put; 
+    put '/*********************************************/';
+    put '/*********************************************/';
+    put ;
+
+
+    put '/********** START OF SCORING DATA STEP *******/';
+    put '/*********************************************/';
+    put '/*********************************************/';
+    put;
+    put 'DATA SCORING;/********** Modify ************/';
+    put ' SET ScoringDataset; /********** Modify ************/';
+    put;
+    put '/*********************************************/';
+    put '/*********************************************/';
+end; 
+
+/* print the dataset RulesDS */
+
+
+%if &amp;IntOpt=1 %then xPoints=int(Points);
+%else xPoints=Points; ;
+
+if VarName=&quot;_BasePoints_&quot; then do;
+    put '/*********************************************/';
+    put &quot;/* Base Points   */&quot;;
+    put '/*********************************************/';
+put &quot;Points=&quot; xPoints &quot;;&quot;;
+end;
+ else do;
+   if first.VarName then do;
+    put '/*********************************************/';
+    put &quot;/* Variable : &quot; VarName &quot;*****/&quot;;
+    put '/*********************************************/';
+  end;
+value= &quot;  THEN  Points=Points +(&quot;||compress(xPoints)||&quot;);&quot;;
+
+/* The rule */
+if VarType=1 then  do;/* continuous */
+    if first.VarName then  cond='IF '||compress(VarName)||' LE ('||compress(UL) || ') '; 
+    else if last.VarName then cond='IF '||compress(VarName)||' GT ('|| compress(LL)||')';
+else cond='IF '||compress(VarName)||' GT ('|| compress(LL)||') AND '||compress(VarName)||' LE ('||compress(UL) || ') '; 
+   end; 
+else if VarType=2 then /* nominal string */
+    cond = 'IF '||compress(VarName)||' = '|| quote(compress(Category)) ; 
+
+    else /* nominal numeric */
+    cond='IF '||compress(VarName)||' = ('|| compress(N_Category)||') '; 
+
+    put &quot;  &quot; cond value;
+
+ end;
+
+ if _N_=Nx then do;
+    put 'RUN;'; 
+    put;
+    put '/*************END OF SCORING DATA STEP *******/';
+    put '/*********************************************/';
+    end;
+run;
+
+
+%mend;
+
+
+
+******************************************************************************;
+*** Validation Application ***; 
+******************************************************************************;   
+
+/*******************************************************/
+/* Macro: CalcWOE */
+/*******************************************************/
+%macro CalcWOE2(DsIn, IVVar, DVVar, WOEDS, WOEVar, DSout);
+/*修改宏，把woeds固定为使用train生成的woe文件*/
+
+/* Match the maps with the values and create the output
+dataset */
+proc sql noprint;
+    create table &amp;dsout as 
+    select a.* , b.woe as &amp;WOEvar from &amp;dsin a, &amp;WOEDS. b where a.&amp;IvVar=b.&amp;IvVar; 
+quit;
+
+%mend;
+
+
+
+******************************************************************************;
+*** Data Preparation   ***; 
+******************************************************************************;   
+
+/*******************************************************/
+/* Simple Replacement For Nominal Variables
+/*******************************************************/
+
+%macro ModeCat(DSin, Xvar, M_Mode);
+/* Finding the mode of a string variable in a dataset */
+%local _mode;
+proc freq data=&amp;DSin noprint order=freq;
+tables &amp;Xvar/out=Temp_Freqs;
+run;
+/* Remove the missing category if found */
+data Temp_freqs;
+set Temp_freqs;
+if &amp;Xvar='' then delete;
+run;
+/* Set the value of the macro variable _mode */
+data Temp_Freqs;
+set Temp_Freqs;
+if _N_=1 then call symput('_mode',trim(&amp;xvar));
+run;
+/* Set the output variable M_mode and clean the workspace */
+%let &amp;M_Mode=&amp;_mode;
+proc datasets library=work nodetails nolist;
+delete Temp_Freqs;
+quit;
+%mend;
+
+%macro SubCat(DSin, Xvar, Method, Value, DSout);
+/*
+Substitution of missing values in a nominal (String) variable
+DSin: input dataset
+Xvar: the string variable
+Method: Method to be used:
+1=Substitute mode
+2=Substitute Value
+3=Delete the record
+Value: Used with Method
+DSout: output dataset with the variable Xvar free of missing
+values
+*/
+/* Option 1: Substitute the Mode */
+%if &amp;Method=1 %then %do;
+/* calculate the mode using macro ModeCat */
+%let mode=;
+%ModeCat(&amp;DSin, &amp;Xvar, Mode);
+/* substitute the mode whenever Xvar=missing */
+Data &amp;DSout;
+Set &amp;DSin;
+if &amp;Xvar='' Then &amp;Xvar=&quot;&amp;mode&quot;;
+run;
+%end;
+/* Option 2: Substitute a user-defined value */
+%else %if &amp;Method=2 %then %do;
+/* substitute the Value whenever Xvar=missing */
+Data &amp;DSout;
+Set &amp;DSin;
+if &amp;Xvar='' Then &amp;Xvar=&quot;&amp;Value&quot;;
+run;
+%end;
+/* Option 3: (anything else) delete the record */
+%else %do;
+/* Delete record whenever Xvar=missing */
+Data &amp;DSout;
+Set &amp;DSin;
+if &amp;Xvar='' Then delete;
+run;
+%end;
+%mend;
+
+
+/*******************************************************/
+/* Simple Replacement For Continuous And Ordinal Var
+/*******************************************************/
+%macro VarUnivar1(ds,varX, StatsDS);
+proc univariate data=&amp;ds noprint;
+var &amp;VarX;
+output out=&amp;StatsDS
+N=Nx
+Mean=Vmean
+min=VMin
+max=VMax
+STD=VStd
+VAR=VVar
+mode=Vmode
+median=Vmedia
+P1=VP1
+P5=VP5
+P10=VP10
+P90=VP90
+P95=VP95
+P99=VP99
+;
+run;
+%mend;
+
+%macro SubCont(DSin, Xvar, Method, Value, DSout);
+/* Calculate the univariate measures */
+%VarUnivar1(&amp;DSin, &amp;Xvar, Temp_univ);
+/* Convert them into macro variables */
+data _null_;
+set Temp_univ;
+Call symput('Mean' ,Vmean);
+Call symput('min' ,VMin);
+Call symput('max' ,VMax);
+Call symput('STD' ,VStd);
+Call symput('mode' ,Vmode);
+Call symput('median',Vmedian);
+Call symput('P1' ,VP1);
+Call symput('P5' ,VP5);
+Call symput('P10' ,VP10);
+Call symput('P90' ,VP90);
+Call symput('P95' ,VP95);
+Call symput('P99' ,VP99);
+run;
+/* Substitute the appropriate value using the
+specified option in the parameter 'Method' */
+Data &amp;DSout;
+set &amp;DSin;
+%if %upcase(&amp;Method)=DELETE %then %do;
+if &amp;Xvar=. then Delete;
+%end;
+%else %do;
+if &amp;Xvar=. then &amp;Xvar=
+%if %upcase(&amp;Method)=MEAN %then &amp;mean;
+%if %upcase(&amp;Method)=MIN %then &amp;min;
+%if %upcase(&amp;Method)=MAX %then &amp;max;
+%if %upcase(&amp;Method)=STD %then &amp;std;
+%if %upcase(&amp;Method)=MODE %then &amp;mode;
+%if %upcase(&amp;Method)=MEDIAN %then &amp;median;
+%if %upcase(&amp;Method)=P1 %then &amp;p1;
+%if %upcase(&amp;Method)=P5 %then &amp;P5;
+%if %upcase(&amp;Method)=P10 %then &amp;P10;
+%if %upcase(&amp;Method)=P90 %then &amp;P90;
+%if %upcase(&amp;Method)=P95 %then &amp;P95;
+%if %upcase(&amp;Method)=P99 %then &amp;P99;
+%if %upcase(&amp;Method)=VALUE %then &amp;Value;
+%end;;
+run;
+/* Finally, clean the workspace */
+proc datasets library=work nolist nodetails;
+delete temp_univ;
+run; quit;
+%mend;
+
+
+
+******************************************************************************;
+*** IV Calculation ***; 
+******************************************************************************;   
+
+%macro PowerIV(DSin, DV, IVList, DSout);
+/* Decompose the input IVList into tokens and store variable
+   names into macro variables */
+
+%local i N condition VarX; 
+%let i=1;
+%let N=0;
+%let condition = 0; 
+%do %until (&amp;condition =1);
+   %let VarX=%scan(&amp;IVList,&amp;i);
+   %if &quot;&amp;VarX&quot; =&quot;&quot;  %then %let condition =1;
+    %else %do;
+                %local Var&amp;i;
+%let Var&amp;i =&amp;VarX; 
+%let N=&amp;i;
+%let i=%eval(&amp;i+1); 
+  %end;  
+%end;
+
+/* now we have a total of N variables
+   Loop on their  names and calculate the Information value
+   between the DV and each of the variables */
+
+proc sql noprint;
+ create table &amp;DSout (VariableName char(200), 
+  InformationValue  num);
+quit;
+
+%do i=1 %to &amp;N;
+   %local IV&amp;i;
+   %let IV&amp;i=;
+    %InfValue(&amp;DSin, &amp;&amp;Var&amp;i, &amp;DV, IV&amp;i);
+    proc sql noprint; 
+ insert into &amp;DSout  values(&quot;&amp;&amp;Var&amp;i&quot;,&amp;&amp;IV&amp;i);
+quit;    
+%end;
+
+
+proc sort data=&amp;dsout;
+ by descending InformationValue; 
+ run;
+
+%mend; 
+
+
+%macro InfValue(DSin, XVar, YVarBin, M_IV);
+
+/* Extract the frequency table using proc freq, 
+   and the categories of the X variable */
+
+proc freq data=&amp;DSin noprint;
+ table &amp;XVar*&amp;YvarBin /out=Temp_freqs;
+ table &amp;XVar /out=Temp_Xcats;
+ run;
+
+proc sql noprint;
+  /* Count the number of obs and categories of X */
+   %local R C; /* rows and columns of freq table */
+   select count(*) into : R from temp_Xcats;
+   select count(*) into : N from &amp;DSin; 
+quit;
+
+  /* extract the categories of X into CatX_i */
+data _Null_;
+  set temp_XCats;
+   call symput(&quot;CatX_&quot;||compress(_N_), &amp;Xvar);
+run;
+
+proc sql noprint; 
+    /* extract n_i_j*/
+ %local i j;
+   %do i=1 %to &amp;R; 
+%do j=1 %to 2;/* we know that YVar is 1/0 - numeric */
+  %local N_&amp;i._&amp;j;
+   Select Count into :N_&amp;i._&amp;j from temp_freqs where &amp;Xvar =&quot;&amp;&amp;CatX_&amp;i&quot; and &amp;YVarBin = %eval(&amp;j-1);
+%end;
+   %end;
+quit;
+
+  /* calculate N*1,N*2 */
+ %local N_1s N_2s;
+  %let N_1s=0;
+      %let N_2s=0;
+  %do i=1 %to &amp;r; 
+      %let N_1s=%sysevalf(&amp;N_1s + &amp;&amp;N_&amp;i._1);
+      %let N_2s=%sysevalf(&amp;N_2s + &amp;&amp;N_&amp;i._2);
+   %end;
+
+/* substitute in the equation for IV */
+ %local IV;
+ %let IV=0;
+   %do i=1 %to &amp;r;
+  %let IV = %sysevalf(&amp;IV + (&amp;&amp;N_&amp;i._1/&amp;N_1s - &amp;&amp;N_&amp;i._2/&amp;N_2s)*%sysfunc(log(%sysevalf(&amp;&amp;N_&amp;i._1*&amp;N_2s/(&amp;&amp;N_&amp;i._2*&amp;N_1s)))) );
+   %end;
+
+%let &amp;M_IV=&amp;IV; 
+
+/* clean the workspace */
+proc datasets library=work;
+delete temp_freqs temp_Xcats;
+quit;
+%mend;
+
+
+%macro GiniStat(DSin, ProbVar, DVVar, DSLorenz, M_Gini);
+/* Calculation of the Gini Statistic from the results of 
+   a predictive model. DSin is the dataset with a dependent
+   variable DVVar, and a predicted probability ProbVar. 
+   The Gini coefficient is returnd in the parameter M_Gini. 
+   DSLorenz contains the data of the Lorenz curve. 
+
+*/
+
+/* Sort the observations using the predicted Probability */
+proc sort data=&amp;DsIn;
+by &amp;ProbVar;
+run;
+
+/* Find the total number of responders */
+proc sql noprint;
+ select sum(&amp;DVVar) into:NResp from &amp;DSin;
+ select count(*) into :NN from &amp;DSin;
+ quit;
+
+
+ /* The base of calculation is 100  */
+
+/* Get Count number of correct Responders per decile */
+data &amp;DSLorenz;
+set &amp;DsIn nobs=NN;
+by &amp;ProbVar;
+retain tile 1  TotResp 0;
+Tile_size=ceil(NN/100);
+
+TotResp=TotResp+&amp;DVVar;
+TotRespPer=TotResp/&amp;Nresp;
+
+if _N_ = Tile*Tile_Size then 
+  do;
+  output;
+   if Tile &lt;100 then  
+   do;
+ Tile=Tile+1;
+         SumResp=0;
+       end;
+  end;  
+keep Tile TotRespPer;
+run;
+/* add the point of zero to the Lorenz data */
+data temp;
+ Tile=0;
+ TotRespPer=0;
+ run;
+ Data &amp;DSLorenz;
+  set temp &amp;DSLorenz;
+run;
+
+
+/* Scale the tile to represent percentage */
+data &amp;DSLorenz;
+set &amp;DSLorenz;
+Tile=Tile/100;
+label TotRespPer='Percent of Positives';
+label Tile ='Percent of population';
+
+run;
+
+/* produce a simple plot of the Lorenze cruve the uniform response 
+   if the IPlot is set to 1 */
+
+/* Calculate the Gini coefficient from the approximation of the Lorenz
+   curve into a sequence of straight line segments and using the 
+   trapezoidal integration approximation.
+   G=1 - Sum_(k=1)^(n)[X_k - X_(k-1)]*[Y_k + Y_(k-1)]
+*/
+data _null_; /* use the null dataset for the summation */
+retain Xk 0 Xk1 0 Yk 0 Yk1 0 G 1;
+set &amp;DSLorenz;
+Xk=tile;
+Yk=TotRespPer;
+G=G-(Xk-Xk1)*(Yk+Yk1);
+
+/* next iteration */
+Xk1=Xk;
+Yk1=Yk;
+
+/* output the Gini Coefficient */
+call symput ('G', compress(G));
+run;
+
+
+/* store the Gini coefficient in the parameter M_Gini */
+
+%let &amp;M_Gini=&amp;G;
+/* Clean the workspace */
+proc datasets library=work nodetails nolist;
+ delete temp ;
+run;
+quit;
+
+%mend;
+</code></pre>
+
+<h1>00<em>Macro</em>PSI<em>SSI</em>Calculation.sas</h1>
+<pre><code>/*****************************************************************************************************
+宏说明：
+        该宏用测试集验证模型及变量的稳定性，分别采用PSI及SSI两个指标
+依赖的宏：
+        1、无
+参数说明：
+        train_data:
+                训练集的woe值及P值
+        test_data
+                测试集的woe值及P值
+        model_coef
+                模型入选变量表
+P
+P值的取名
+Nb
+分数分段数
+输出结果表：
+        输出PSI及SSI结果表
+作者：丁露涛
+日期：2017.5.12
+说明:
+%Preselection(训练集的woe值及P值,测试集的woe值及P值,模型入选变量表,P值的取名,分数分段数);      
+*****************************************************************************************************/
+%macro totalpsi(train_data,test_data,P,Nb);
+/*1、PSI计算*/
+/* 找出训练集分数的最大值、最小值及总单量*/
+    proc sql  noprint; 
+         select  max(&amp;P.),min(&amp;P.),count(1) into : Pmax, : Pmin ,:nobs1
+  from   &amp;train_data.;/*最高分、最低分*/
+    quit;
+
+     /*计算出每个分数段的宽度*/
+    %let Bs =%sysevalf((&amp;Pmax-&amp;Pmin)/&amp;Nb);/*sysevalf 计算算术和逻辑表达式，浮点格式*/
+
+    /*计算训练集每个分段的上界及下界*/
+    data temp_train;
+     set &amp;train_data.;
+      %do i=1 %to &amp;Nb;
+         %let Bin_U&amp;i=%sysevalf(&amp;Pmin+&amp;i*&amp;Bs);
+         %let Bin_L&amp;i=%sysevalf(&amp;&amp;Bin_U&amp;i-&amp;Bs);
+         IF &amp;P. &gt; &amp;&amp;Bin_L&amp;i and &amp;P. &lt;=&amp;&amp;Bin_U&amp;i THEN P1=&amp;i.; 
+      %end;
+      if p1=. then p1=1;
+    run;
+    /* 生成一个包含每个分段的上下界的表 */
+    data temp_blimits;
+%do i=1 %to &amp;Nb;
+ Bin_LowerLimit=&amp;&amp;Bin_L&amp;i;
+ Bin_UpperLimit=&amp;&amp;Bin_U&amp;i;
+  Bin=&amp;i;
+          output;
+ %end;
+run;
+
+    /*训练集的分段范围及各分段的单量及占比*/
+    proc sql noprint;
+    create table &amp;train_data._range as
+    (select A.bin,A.Bin_LowerLimit,A.Bin_UpperLimit,b.n as train_n,b.percent as train_pct
+from temp_blimits as A,
+    (select p1,count(1) as n,count(1)/&amp;nobs1. as percent from temp_train group by p1) AS B
+ where A.Bin=B.p1);
+    run;
+
+    /*训练集的上下界进行调整并整合分数分段范围*/
+    data &amp;train_data._range;
+    set &amp;train_data._range;
+    if _n_=10 then Bin_UpperLimit=999999;
+if _n_=1 then Bin_LowerLimit=-999999;
+    range=compress(cats(&quot;(&quot;,Bin_LowerLimit,&quot;,&quot;,Bin_UpperLimit,&quot;]&quot;),'');
+    run;
+
+    /* 找出测试集的总单量*/
+    proc sql  noprint; 
+         select count(1) into :nobs2
+  from   &amp;test_data.;/*总单量*/
+    quit;
+
+    /*按照训练集的上下界对测试集的P值进行划段*/
+    data temp_test;
+     set &amp;test_data.;
+      %do i=1 %to &amp;Nb-1;
+         IF &amp;P. &gt; &amp;&amp;Bin_L&amp;i and &amp;P. &lt;=&amp;&amp;Bin_U&amp;i THEN P1=&amp;i.; 
+      %end;
+   IF &amp;P. &gt; &amp;&amp;Bin_L&amp;Nb THEN P1=&amp;Nb; 
+       if P1=. then p1=1;
+    run;
+
+   /*计算PSI*/
+    proc sql noprint;
+    create table &amp;train_data._psi as
+    select * ,test_pct-train_pct as difference,test_pct/train_pct as variance,log(ifn(test_pct=.,0.001,test_pct/train_pct)) as ln,
+  (test_pct-train_pct)*log(ifn(test_pct=.,0.001,test_pct/train_pct)) as Stability_Index
+from
+    ((select A.*,b.n as test_n,ifn(b.percent=.,0.001,b.percent) as test_pct
+from &amp;train_data._range as A
+    left join 
+    (select p1,count(1) as n,count(1)/&amp;nobs2. as percent from temp_test group by p1) AS B
+ on A.Bin=B.p1));
+    run;
+
+    data &amp;train_data._psi;
+    set &amp;train_data._psi;
+    sum+Stability_Index;
+    run;
+
+proc delete data=temp_train temp_blimits &amp;train_data._range temp_test;
+run;
+%mend;
+
+
+
+%macro totalssi(train_data,test_data,model_coef);
+/*2、SSI计算*/
+    proc sql  noprint; 
+         select count(1) into :nobs1
+  from   &amp;train_data.;
+    quit;
+
+    proc sql  noprint; 
+         select count(1) into :nobs2
+  from   &amp;test_data.;/*总单量*/
+    quit;
+
+    proc sql  noprint; 
+    select variable into : varlist separated by ' ' from  &amp;model_coef. where variable&lt;&gt;&quot;Intercept&quot;;/*找出模型中需要计算SSI的各变量*/
+   %LET nvar=&amp;SQLOBS;
+  QUIT;
+ %put &amp;varlist.;
+
+     proc sql  noprint; 
+     create table &amp;train_data._clus_total
+     (column varchar(100)
+     ,woe numeric
+     ,n numeric
+     ,percent numeric);
+     run;
+
+      proc sql  noprint; 
+     create table &amp;test_data._clus_total
+     (column varchar(100)
+     ,woe numeric
+     ,n numeric
+     ,percent numeric);
+     run;
+
+  %do i=1 %to &amp;nvar;
+   %LET var = %SCAN(&amp;varlist, &amp;i);
+
+    /*训练集各个变量分组的占比情况*/
+    proc sql noprint;
+    create table &amp;train_data._clus as
+    (select &quot;&amp;var.&quot; as column,&amp;var. as woe,count(1) as n,count(1)/&amp;nobs1. as percent from &amp;train_data. group by &amp;var.);
+    run;
+
+    data &amp;train_data._clus_total;
+    set  &amp;train_data._clus_total &amp;train_data._clus;
+    run;
+   /*测试集各个变量分组的占比情况*/
+proc sql noprint;
+    create table &amp;test_data._clus as
+    (select &quot;&amp;var.&quot; as column,&amp;var. as woe,count(1) as n,count(1)/&amp;nobs2. as percent from &amp;test_data. group by &amp;var.);
+    run;
+
+    data &amp;test_data._clus_total;
+    set  &amp;test_data._clus_total &amp;test_data._clus ;
+    run;
+ %end;
+
+
+   /*计算SSI*/
+    proc sql noprint;
+    create table &amp;test_data._var_pSI as 
+    (select *,test_pct-train_pct as difference,test_pct/train_pct as variance,log(ifn(test_pct=0,0.001,test_pct/train_pct)) as ln,
+  (test_pct-train_pct)*log(ifn(test_pct=0,0.001,test_pct/train_pct)) as Stability_Index
+          from
+    (select A.column,A.woe as clus,A.n as train_n,A.percent as train_pct,B.n as test_n,ifn(b.percent=.,0.001,b.percent) as test_pct
+    from &amp;train_data._clus_total as A
+    left join &amp;test_data._clus_total as B
+    on A.column=B.column
+    and A.woe=B.woe)
+  );
+    run;
+
+    data &amp;test_data._var_pSI;
+    set &amp;test_data._var_pSI;
+    by column;
+    if first.column then ssi=0;
+    ssi+Stability_Index;
+    run;
+
+proc delete data= &amp;train_data._clus_total &amp;test_data._clus_total &amp;train_data._clus &amp;test_data._clus;
+run;
+
+%mend;
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
